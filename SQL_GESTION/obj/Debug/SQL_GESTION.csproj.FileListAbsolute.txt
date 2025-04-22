@@ -1,0 +1,16 @@
+C:\Users\hack4\source\repos\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.AssemblyReference.cache
+C:\Users\hack4\source\repos\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.PRESENTACION.frmConectar.resources
+C:\Users\hack4\source\repos\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.Properties.Resources.resources
+C:\Users\hack4\source\repos\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.GenerateResource.cache
+C:\Users\hack4\source\repos\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.CoreCompileInputs.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.AssemblyReference.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.PRESENTACION.frmConectar.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.Properties.Resources.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.GenerateResource.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.csproj.CoreCompileInputs.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\bin\Debug\SQL_GESTION.exe.config
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\bin\Debug\SQL_GESTION.exe
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\bin\Debug\SQL_GESTION.pdb
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.exe
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.pdb
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\SQL_GESTION\SQL_GESTION\obj\Debug\SQL_GESTION.PRESENTACION.frmEmpleados.resources
