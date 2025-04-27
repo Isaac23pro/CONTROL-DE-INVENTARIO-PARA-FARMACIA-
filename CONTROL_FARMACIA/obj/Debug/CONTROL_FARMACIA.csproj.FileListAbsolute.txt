@@ -1,0 +1,23 @@
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.exe.config
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.exe
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.pdb
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.AssemblyReference.cache
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.Properties.Resources.resources
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.GenerateResource.cache
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.CoreCompileInputs.cache
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.exe
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.pdb
+C:\Users\hack4\source\repos\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmLogin.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.exe.config
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.exe
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\bin\Debug\CONTROL_FARMACIA.pdb
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.AssemblyReference.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmLogin.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.Properties.Resources.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.GenerateResource.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.csproj.CoreCompileInputs.cache
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.exe
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.pdb
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmDashboard.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmInventario.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmVentas.resources
