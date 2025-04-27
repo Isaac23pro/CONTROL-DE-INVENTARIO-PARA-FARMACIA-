@@ -16,10 +16,7 @@
 |---------------------|--------------------------------------|--------------------------------------------------|
 | 🖥️ Cliente         | C# (.NET Framework) – Windows Forms  | Interfaz de usuario de escritorio                |
 | 🗄️ Base de datos    | Microsoft SQL Server                | Almacenamiento de datos relacional (inventario, ventas, usuarios) |
-| 🔗 Conexión DB      | ADO.NET / Entity Framework (opcional)| Comunicación entre aplicación y base de datos    |
-| 📊 Gráficos         | System.Windows.Forms.DataVisualization | Generación de gráficos de barras y tablas        |
 | 🛠️ Desarrollo       | Visual Studio                       | Entorno de desarrollo integrado                   |
-| 📋 Control de versiones | Git / GitHub                    | Seguimiento de cambios y colaboración             |
 
 ---
 
