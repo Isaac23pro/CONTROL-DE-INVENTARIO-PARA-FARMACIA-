@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace CONTROL_FARMACIA
 {
-    public partial class frmVentas : Form
+    public partial class frmCaducidad : Form
     {
-        public frmVentas()
+        public frmCaducidad()
         {
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

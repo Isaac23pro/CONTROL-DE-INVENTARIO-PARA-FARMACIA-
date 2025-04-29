@@ -21,3 +21,5 @@ C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CO
 C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmDashboard.resources
 C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmInventario.resources
 C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmVentas.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmCaducidad.resources
+C:\Users\hack4\Documents\Plantillas personalizadas de Office\CONTROL_FARMACIA\CONTROL_FARMACIA\obj\Debug\CONTROL_FARMACIA.frmReportes.resources
