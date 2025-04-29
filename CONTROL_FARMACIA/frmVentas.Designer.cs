@@ -48,17 +48,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.dvgVentasFacturacion = new System.Windows.Forms.DataGridView();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgVentasFacturacion)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -216,11 +212,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.numericUpDown1);
-            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label15);
@@ -282,64 +273,20 @@
             this.panel4.Size = new System.Drawing.Size(442, 192);
             this.panel4.TabIndex = 11;
             // 
-            // button1
+            // dvgVentasFacturacion
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(150)))));
-            this.button1.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(39, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(362, 38);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Generar Factura";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(246, 284);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown1.TabIndex = 19;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(350, 215);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 22);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "0.00";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(350, 350);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 22);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "0.00";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(350, 284);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 22);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "0.00";
+            this.dvgVentasFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgVentasFacturacion.Location = new System.Drawing.Point(243, 249);
+            this.dvgVentasFacturacion.Name = "dvgVentasFacturacion";
+            this.dvgVentasFacturacion.Size = new System.Drawing.Size(502, 391);
+            this.dvgVentasFacturacion.TabIndex = 19;
             // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 652);
+            this.Controls.Add(this.dvgVentasFacturacion);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label8);
@@ -359,7 +306,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgVentasFacturacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,10 +333,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dvgVentasFacturacion;
     }
 }

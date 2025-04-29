@@ -16,7 +16,7 @@ namespace CONTROL_FARMACIA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmReportes());
+            Application.Run(new frmLogin());
         }
     }
 }

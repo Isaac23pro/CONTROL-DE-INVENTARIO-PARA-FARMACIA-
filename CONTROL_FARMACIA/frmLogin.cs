@@ -21,5 +21,17 @@ namespace CONTROL_FARMACIA
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmDashboard frmDashboard = new frmDashboard();
+            frmDashboard.Show();
+            this.Hide();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

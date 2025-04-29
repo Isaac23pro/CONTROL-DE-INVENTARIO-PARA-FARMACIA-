@@ -1,0 +1,6 @@
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\bin\Debug\DATOS.dll
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\bin\Debug\DATOS.pdb
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\obj\Debug\DATOS.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\obj\Debug\DATOS.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\obj\Debug\DATOS.dll
+C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\DATOS\obj\Debug\DATOS.pdb

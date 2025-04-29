@@ -21,15 +21,5 @@ namespace CONTROL_FARMACIA
         {
 
         }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
