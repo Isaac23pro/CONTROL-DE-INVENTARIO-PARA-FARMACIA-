@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datalayer;
 using DATOS;
 
 namespace NEGOCIO
@@ -12,22 +13,22 @@ namespace NEGOCIO
         private ProductoDatos productoDatos = new ProductoDatos();
 
 
-        public List<LaboratorioProducto> ObtenerProductos()
+        public List<Producto> ObtenerProductos()
         {
             return productoDatos.ObtenerProductos();
         }
 
-        public LaboratorioProducto ObtenerProductoPorId(int idProducto)
+        public Producto ObtenerProductoPorId(int idProducto)
         {
             return productoDatos.ObtenerProductoPorId(idProducto);
         }
 
-        public void AgregarProducto(LaboratorioProducto producto)
+        public void AgregarProducto(Producto producto)
         {
             productoDatos.AgregarProducto(producto);
         }
 
-        public void ActualizarProducto(LaboratorioProducto producto)
+        public void ActualizarProducto(Producto producto)
         {
             productoDatos.ActualizarProducto(producto);
         }
@@ -35,6 +36,11 @@ namespace NEGOCIO
         public void EliminarProducto(int idProducto)
         {
             productoDatos.EliminarProducto(idProducto);
+        }
+
+        public List<Producto> BuscarPorNombre(string nombre)
+        {
+            return productoDatos.BuscarPorNombre(nombre);
         }
     }
 }

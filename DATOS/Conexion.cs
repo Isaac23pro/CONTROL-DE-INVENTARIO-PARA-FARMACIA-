@@ -9,7 +9,7 @@ namespace DATOS
 {
     public class Conexion
     {
-        private string connectionString = "Server=localhost;Database=FarmaciaDB; Trusted_Connection=True;Encrypt=False;"; // Coloca tu cadena de conexión
+        private string connectionString = "Server=localhost;Database=FARMACIA; Trusted_Connection=True;Encrypt=False;"; // Coloca tu cadena de conexión
 
         // Método para obtener la conexión
         public SqlConnection ObtenerConexion()

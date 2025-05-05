@@ -17,12 +17,7 @@ namespace CONTROL_FARMACIA
             InitializeComponent();
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void frmDashboard_Load(object sender, EventArgs e)
         {
 
         }

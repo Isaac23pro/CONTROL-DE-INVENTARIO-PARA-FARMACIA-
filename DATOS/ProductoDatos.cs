@@ -1,39 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using DATOS;
 
-namespace DATOS
+namespace Datalayer
 {
     public class ProductoDatos
     {
         private Conexion conexion = new Conexion();
 
-        public List<LaboratorioProducto> ObtenerProductos()
+        public List<Producto> ObtenerProductos()
         {
-            List<LaboratorioProducto> producto = new List<LaboratorioProducto>();
+            List<Producto> producto = new List<Producto>();
 
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM laboratorios_producto", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Producto", con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    LaboratorioProducto productos = new LaboratorioProducto
+                    Producto productos = new Producto
                     {
-                        id_laboratorio_producto = Convert.ToInt32(reader["id_laboratorio_producto"]),
-                        nombre_comercial = reader["nombre_comercial"].ToString(),
-                        nombre_generico = reader["nombre_generico"].ToString(),
-                        id_categoria_farmaco = Convert.ToInt32(reader["id_categoria_farmaco"]),
-                        precio_venta = Convert.ToDecimal(reader["precio_venta"]),
-                        precio_compra = Convert.ToDecimal(reader["precio_compra"]),
-                        id_presentacion = Convert.ToInt32(reader["id_presentacion"]),
-                        id_concentracion = Convert.ToInt32(reader["id_concentracion"]),
-                        id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
-                        id_lote = Convert.ToInt32(reader["id_lote"]),
+                        IdProducto = reader.GetInt32(0),
+                        NombreComercial = reader.GetString(1),
+                        NombreGenerico = reader.GetString(2),
+                        IdCategoria = reader.GetInt32(3),
+                        PrecioVenta = reader.GetDecimal(4),
+                        PrecioCompra = reader.GetDecimal(5),                       
+                        IdPresentacion = reader.GetInt32(6),                   
+                        IdConcentracion = reader.GetInt32(7),
+                        IdProveedor = reader.GetInt32(8),
+                        IdLote = reader.GetInt32(9),
+                        
+
+
                     };
 
                     producto.Add(productos);
@@ -43,33 +48,33 @@ namespace DATOS
             return producto;
         }
 
-        public LaboratorioProducto ObtenerProductoPorId(int idProducto)
+        public Producto ObtenerProductoPorId(int idProducto)
         {
-             LaboratorioProducto producto = null;
+            Producto producto = null;
 
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Productos WHERE IdProducto = @IdProducto", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE IdProducto = @IdProducto", con);
                 cmd.Parameters.AddWithValue("@IdProducto", idProducto);
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    producto = new LaboratorioProducto
+                    producto = new Producto
                     {
-                        id_laboratorio_producto = Convert.ToInt32(reader["id_laboratorio_producto"]),
-                        nombre_comercial = reader["nombre_comercial"].ToString(),
-                        nombre_generico = reader["nombre_generico"].ToString(),
-                        id_categoria_farmaco = Convert.ToInt32(reader["id_categoria_farmaco"]),
-                        precio_venta = Convert.ToDecimal(reader["precio_venta"]),
-                        precio_compra = Convert.ToDecimal(reader["precio_compra"]),
-                        id_presentacion = Convert.ToInt32(reader["id_presentacion"]),
-                        id_concentracion = Convert.ToInt32(reader["id_concentracion"]),
-                        id_proveedor = Convert.ToInt32(reader["id_proveedor"]),
-                        id_lote = Convert.ToInt32(reader["id_lote"]),
+                        IdProducto = reader.GetInt32(0),
+                        NombreComercial = reader.GetString(1),
+                        NombreGenerico = reader.GetString(2),
+                        IdCategoria = reader.GetInt32(3),
+                        PrecioVenta = reader.GetDecimal(4),
+                        PrecioCompra = reader.GetDecimal(5),
+                        IdPresentacion = reader.GetInt32(6),
+                        IdConcentracion = reader.GetInt32(7),
+                        IdProveedor = reader.GetInt32(8),
+                        IdLote = reader.GetInt32(9),
+
                     };
-                
 
                 }
             }
@@ -77,44 +82,47 @@ namespace DATOS
             return producto;
         }
 
-        public void AgregarProducto(LaboratorioProducto producto)
+        public void AgregarProducto(Producto producto)
         {
             using (SqlConnection con = conexion.ObtenerConexion())
             {
                 SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO laboratorios_producto (nombre_comercial, nombre_generico, id_categoria_farmaco, precio_venta, precio_compra, id_presentacion, id_concentracion, id_proveedor, id_lote) " +
-                    "VALUES (@nombre_comercial, @nombre_generico, @id_categoria_farmaco, @precio_venta, @precio_compra, @id_presentacion, @id_concentracion, @id_proveedor, @id_lote)", con);
+                    "INSERT INTO Productos (NombreComercial, NombreGenerico, PrecioCompra, PrecioVenta, IdPresentacion, IdLote, IdConcentracion, IdCategoria, IdProveedor) " +
+                    "VALUES (@NombreComercial, @NombreGenerico, @PrecioCompra, @PrecioVenta, @IdPresentacion, @IdLote, @IdConcentracion, @IdCategoria, @IdProveedor)", con);
 
-                cmd.Parameters.AddWithValue("@nombre_comercial", producto.nombre_comercial);
-                cmd.Parameters.AddWithValue("@nombre_generico", producto.nombre_generico);
-                cmd.Parameters.AddWithValue("@id_categoria_farmaco", producto.id_categoria_farmaco);
-                cmd.Parameters.AddWithValue("@precio_venta", producto.precio_venta);
-                cmd.Parameters.AddWithValue("@precio_compra", producto.precio_compra);
-                cmd.Parameters.AddWithValue("@id_presentacion", producto.id_presentacion);
-                cmd.Parameters.AddWithValue("@id_concentracion", producto.id_concentracion);
-                cmd.Parameters.AddWithValue("@id_proveedor", producto.id_proveedor);
-                cmd.Parameters.AddWithValue("@id_lote", producto.id_lote);
-
+                cmd.Parameters.AddWithValue("@NombreComercial", producto.NombreComercial);
+                cmd.Parameters.AddWithValue("@NombreGenerico", producto.NombreGenerico);
+                cmd.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
+                cmd.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
+                cmd.Parameters.AddWithValue("@IdPresentacion", producto.IdPresentacion);
+                cmd.Parameters.AddWithValue("@IdLote", producto.IdLote);
+                cmd.Parameters.AddWithValue("@IdConcentracion", producto.IdConcentracion);
+                cmd.Parameters.AddWithValue("@IdCategoria", producto.IdCategoria);
+                cmd.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
+                    
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public void ActualizarProducto(LaboratorioProducto producto)
+        public void ActualizarProducto(Producto producto)
         {
             using (SqlConnection con = conexion.ObtenerConexion())
             {
                 SqlCommand cmd = new SqlCommand(
-                    "UPDATE laboratorios_producto SET nombre_comercial = @nombre_comercial, nombre_generico = @nombre_generico, id_categoria_farmaco = @id_categoria_farmaco, precio_venta = @precio_venta, precio_compra = @precio_compra, id_presentacion = @id_presentacion, id_concentracion = @id_concentracion, id_proveedor = @id_proveedor, id_lote = @id_lote WHERE id_laboratorio_producto = @id_laboratorio_producto", con);
-                cmd.Parameters.AddWithValue("@id_laboratorio_producto", producto.id_laboratorio_producto);
-                cmd.Parameters.AddWithValue("@nombre_comercial", producto.nombre_comercial);
-                cmd.Parameters.AddWithValue("@nombre_generico", producto.nombre_generico);
-                cmd.Parameters.AddWithValue("@id_categoria_farmaco", producto.id_categoria_farmaco);
-                cmd.Parameters.AddWithValue("@precio_venta", producto.precio_venta);
-                cmd.Parameters.AddWithValue("@precio_compra", producto.precio_compra);
-                cmd.Parameters.AddWithValue("@id_presentacion", producto.id_presentacion);
-                cmd.Parameters.AddWithValue("@id_concentracion", producto.id_concentracion);
-                cmd.Parameters.AddWithValue("@id_proveedor", producto.id_proveedor);
-                cmd.Parameters.AddWithValue("@id_lote", producto.id_lote);
+                    "UPDATE Productos SET NombreComercial = @NombreComercial, NombreGenerico = @NombreGenerico, PrecioCompra = @PrecioCompra, PrecioVenta = @PrecioVenta, IdPresentacion = @IdPresentacion, IdLote = @IdLote, IdConcentracion = @IdConcentracion, IdCategoria = @IdCategoria, IdProveedor = @IdProveedor " +
+                    "WHERE IdProducto = @IdProducto", con);
+
+                cmd.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+                cmd.Parameters.AddWithValue("@NombreComercial", producto.NombreComercial);
+                cmd.Parameters.AddWithValue("@NombreGenerico", producto.NombreGenerico);
+                cmd.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
+                cmd.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
+                cmd.Parameters.AddWithValue("@IdPresentacion", producto.IdPresentacion);
+                cmd.Parameters.AddWithValue("@IdLote", producto.IdLote);
+                cmd.Parameters.AddWithValue("@IdConcentracion", producto.IdConcentracion);
+                cmd.Parameters.AddWithValue("@IdCategoria", producto.IdCategoria);
+                cmd.Parameters.AddWithValue("@IdProveedor", producto.IdProveedor);
+
                 cmd.ExecuteNonQuery();
             }
         }
@@ -123,14 +131,84 @@ namespace DATOS
         {
             using (SqlConnection con = conexion.ObtenerConexion())
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM laboratorios_producto WHERE id_laboratorio_producto = @id_laboratorio_producto", con);
-                cmd.Parameters.AddWithValue("@id_laboratorio_producto", idProducto);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Productos WHERE IdProducto = @IdProducto", con);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+
+             
                 cmd.ExecuteNonQuery();
             }
         }
-    }
 
-    
+        
+        public List<Producto> ObtenerProductoPorCategoria(int idCategoria)
+        {
+            List<Producto> productos = new List<Producto>();
+
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE IdCategoria = @IdCategoria", con);
+                cmd.Parameters.AddWithValue("@IdCategoria", idCategoria);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Producto producto = new Producto
+                    {
+                        IdProducto = reader.GetInt32(0),
+                        NombreComercial = reader.GetString(1),
+                        NombreGenerico = reader.GetString(2),
+                        IdCategoria = reader.GetInt32(3),
+                        PrecioVenta = reader.GetDecimal(4),
+                        PrecioCompra = reader.GetDecimal(5),
+                        IdPresentacion = reader.GetInt32(6),
+                        IdConcentracion = reader.GetInt32(7),
+                        IdProveedor = reader.GetInt32(8),
+                        IdLote = reader.GetInt32(9),
+                    };
+
+                    productos.Add(producto);
+                }
+            }
+
+            return productos;
+        }
+
+        public List<Producto> BuscarPorNombre(string nombreParcial)
+        {
+            List<Producto> lista = new List<Producto>();
+
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                string query = "SELECT * FROM Producto WHERE NombreGenerico LIKE @NombreGenerico";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@NombreGenerico", "%" + nombreParcial + "%");
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Producto producto = new Producto
+                    {
+                        IdProducto = reader.GetInt32(0),
+                        NombreComercial = reader.GetString(1),
+                        NombreGenerico = reader.GetString(2),
+                        IdCategoria = reader.GetInt32(3),
+                        PrecioVenta = reader.GetDecimal(4),
+                        PrecioCompra = reader.GetDecimal(5),
+                        IdPresentacion = reader.GetInt32(6),
+                        IdConcentracion = reader.GetInt32(7),
+                        IdProveedor = reader.GetInt32(8),
+                        IdLote = reader.GetInt32(9),
+                    };
+                    lista.Add(producto);
+                }
+            }
+
+            return lista;
+        }
+
+
+
+
+    }
 }
 
-  

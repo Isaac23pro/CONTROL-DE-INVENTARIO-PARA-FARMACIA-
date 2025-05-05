@@ -21,5 +21,10 @@ namespace CONTROL_FARMACIA
         {
 
         }
+
+        private void dvgVentasFacturacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

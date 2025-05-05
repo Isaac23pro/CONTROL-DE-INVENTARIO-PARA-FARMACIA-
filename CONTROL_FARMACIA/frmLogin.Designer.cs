@@ -32,8 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnIngresar);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtClave);
+            this.panel1.Controls.Add(this.txtNombreUsuario);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(0, 202);
@@ -90,19 +90,21 @@
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox2
+            // txtClave
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(302, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtClave.Location = new System.Drawing.Point(98, 187);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(302, 20);
+            this.txtClave.TabIndex = 5;
+            this.txtClave.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txtNombreUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(302, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(97, 68);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(302, 20);
+            this.txtNombreUsuario.TabIndex = 4;
+            this.txtNombreUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
@@ -124,9 +126,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(150)))));
             this.label3.Location = new System.Drawing.Point(93, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 22);
+            this.label3.Size = new System.Drawing.Size(154, 22);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Usuario";
+            this.label3.Text = "Nombre Usuario";
             // 
             // label1
             // 
@@ -164,7 +166,8 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "frmLogin";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -177,10 +180,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnIngresar;
     }
