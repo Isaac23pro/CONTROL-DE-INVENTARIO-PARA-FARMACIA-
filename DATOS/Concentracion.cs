@@ -9,16 +9,18 @@ namespace DATOS
     public class Concentracion
     {
         public int IdConcentracion { get; set; }
-        public string Valor { get; set; }
+        public decimal Volumen { get; set; }
+        public decimal Porcentaje { get; set; }
+
+        public string VolumenFormateado => Volumen.ToString("0.##");
 
         public Concentracion() { }
 
-        public Concentracion(int idConcentracion, string valor)
+        public Concentracion(int idConcentracion, decimal volumen, decimal porcentaje)
         {
             IdConcentracion = idConcentracion;
-            Valor = valor;
+            Volumen = volumen;
+            Porcentaje = porcentaje;
         }
     }
-
-
 }

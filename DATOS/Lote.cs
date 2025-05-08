@@ -21,5 +21,4 @@ namespace DATOS
             FechaEntrega = fechaEntrega;
         }
     }
-
 }

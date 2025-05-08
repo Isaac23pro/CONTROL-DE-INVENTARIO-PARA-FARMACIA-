@@ -138,7 +138,7 @@ namespace CONTROL_FARMACIA
             try
             {
                 Producto nuevoProducto = new Producto
-                {   
+                {
                     NombreComercial = txtNombreComercial.Text.Trim(),
                     NombreGenerico = txtNombreGenerico.Text.Trim(),
                     PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Text),
@@ -365,11 +365,6 @@ namespace CONTROL_FARMACIA
             txtNombreGenerico.Focus();
             dgvMedicamentos.ClearSelection();
             LimpiarFormulario();
-        }
-
-        private void cbConcentracion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

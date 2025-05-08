@@ -37,6 +37,7 @@
             this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.btnGestionarProductos = new System.Windows.Forms.Button();
             this.panelAggProductos = new System.Windows.Forms.Panel();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.cbConcentracion = new System.Windows.Forms.ComboBox();
             this.cbNumeroLote = new System.Windows.Forms.ComboBox();
@@ -58,7 +59,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).BeginInit();
             this.panel6.SuspendLayout();
             this.panelAggProductos.SuspendLayout();
@@ -186,6 +186,18 @@
             this.panelAggProductos.Size = new System.Drawing.Size(977, 168);
             this.panelAggProductos.TabIndex = 15;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(150)))));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(3, 12);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(152, 27);
+            this.btnNuevo.TabIndex = 20;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // cbProveedor
             // 
             this.cbProveedor.FormattingEnabled = true;
@@ -201,6 +213,7 @@
             this.cbConcentracion.Name = "cbConcentracion";
             this.cbConcentracion.Size = new System.Drawing.Size(183, 21);
             this.cbConcentracion.TabIndex = 19;
+            this.cbConcentracion.SelectedIndexChanged += new System.EventHandler(this.cbConcentracion_SelectedIndexChanged);
             // 
             // cbNumeroLote
             // 
@@ -368,18 +381,6 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(91)))), ((int)(((byte)(150)))));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(3, 12);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(152, 27);
-            this.btnNuevo.TabIndex = 20;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmInventario
             // 
