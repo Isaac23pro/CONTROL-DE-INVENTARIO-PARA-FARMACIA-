@@ -7,3 +7,21 @@ C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\
 C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.Up2Date
 C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.dll
 C:\Users\HP\source\repos\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.pdb
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\NEGOCIO.dll
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\NEGOCIO.pdb
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\DATOS.dll
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\DATOS.pdb
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.AssemblyReference.cache
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.Up2Date
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.dll
+C:\Users\HP\source\repos\ControlFarmacia-Actualizado\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.pdb
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\NEGOCIO.dll
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\NEGOCIO.pdb
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\DATOS.dll
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\bin\Debug\DATOS.pdb
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.AssemblyReference.cache
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.csproj.Up2Date
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.dll
+C:\Users\hack4\Documents\Nueva carpeta\CONTROL-DE-INVENTARIO-PARA-FARMACIA-\NEGOCIO\obj\Debug\NEGOCIO.pdb

@@ -153,7 +153,6 @@
             // 
             // dvgVentasFacturacion
             // 
-            this.dvgVentasFacturacion.BackgroundColor = System.Drawing.Color.White;
             this.dvgVentasFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgVentasFacturacion.Location = new System.Drawing.Point(17, 170);
             this.dvgVentasFacturacion.Name = "dvgVentasFacturacion";

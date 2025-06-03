@@ -64,5 +64,10 @@ namespace CONTROL_FARMACIA
         {
 
         }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

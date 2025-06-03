@@ -24,5 +24,25 @@ namespace DATOS
                 return count > 0;
             }
         }
+
+        public void ObtenerUsuarios(List<Usuario> usuarios)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                string query = "SELECT IdUsuario, Nombre, Clave FROM Usuarios";
+                SqlCommand cmd = new SqlCommand(query, con);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.IdUsuario = reader.GetInt32(0);
+                        usuario.Nombre = reader.GetString(1);
+                        usuario.Clave = reader.GetString(2);
+                        usuarios.Add(usuario);
+                    }
+                }
+            }
+        }
     }
 }

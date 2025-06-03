@@ -14,6 +14,7 @@ namespace NEGOCIO
         {
             return presentacionDatos.ObtenerPresentaciones();
         }
+
         public Presentacion ObtenerPresentacionPorId(int id)
         {
             return presentacionDatos.ObtenerPresentacionPorId(id);

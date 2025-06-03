@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caducidad.cs" />
+    <Compile Include="CaducidadDatos.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="CategoriaDatos.cs" />
     <Compile Include="Concentracion.cs" />
@@ -48,6 +50,8 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="Lote.cs" />
     <Compile Include="LoteDatos.cs" />
+    <Compile Include="Marca.cs" />
+    <Compile Include="MarcaDatos.cs" />
     <Compile Include="Presentacion.cs" />
     <Compile Include="PresentacionDatos.cs" />
     <Compile Include="Producto.cs" />

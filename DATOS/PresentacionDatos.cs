@@ -26,7 +26,7 @@ namespace DATOS
                         Descripcion = reader["Descripcion"].ToString(),
                         UnidadMedida = reader["UnidadMedida"].ToString(),
                         CantidadUnidadMedida = Convert.ToInt32(reader["CantidadUnidadMedida"]),
-                        Nombre = reader["Nombre"].ToString(),
+                        
                     };
                 
                     presentaciones.Add(presentacion);

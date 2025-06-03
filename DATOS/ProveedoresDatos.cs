@@ -30,14 +30,57 @@ namespace DATOS
                         };
                         proveedores.Add(proveedor);
                     }
-                
+
                 }
                 return proveedores;
             }
 
 
 
-        } 
+        }
 
+        public void AgregarProveedor(Proveedores proveedor)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO Proveedor (Nombre, Cedula, Correo, IdMarca)" +
+                    " VALUES (@Nombre, @Cedula, @Correo, @IdMarca)", con);
+                cmd.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
+                cmd.Parameters.AddWithValue("@Cedula", proveedor.Cedula);
+                cmd.Parameters.AddWithValue("@Correo", proveedor.Correo);
+                cmd.Parameters.AddWithValue("@IdMarca", proveedor.IdMarca);
+
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
+        public void ActualizarProveedor(Proveedores proveedor)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Proveedor SET Nombre = @Nombre, Cedula = @Cedula, Correo = @Correo, IdMarca = @IdMarca WHERE IdProveedor = @IdProveedor", con);
+                cmd.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                cmd.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
+                cmd.Parameters.AddWithValue("@Cedula", proveedor.Cedula);
+                cmd.Parameters.AddWithValue("@Correo", proveedor.Correo);
+                cmd.Parameters.AddWithValue("@IdMarca", proveedor.IdMarca);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarProveedor(int idProveedor)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Proveedor WHERE IdProveedor = @IdProveedor", con);
+                cmd.Parameters.AddWithValue("@IdProveedor", idProveedor);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+       
+        
     }
 }

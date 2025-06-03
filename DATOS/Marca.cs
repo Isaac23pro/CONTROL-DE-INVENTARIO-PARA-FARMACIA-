@@ -9,17 +9,20 @@ namespace DATOS
     public class Marca
     {
         public int IdMarca { get; set; }
-        public string NombreMarca { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public string PoliticaDevolucion { get; set; }
 
-        public Marca() { }
 
-        public Marca(int idMarca, string nombreMarca, string politicaDevolucion)
+    public Marca() { }
+    public Marca(int idMarca, string nombre, string descripcion, string politicaDevolucion)
         {
             IdMarca = idMarca;
-            NombreMarca = nombreMarca;
+            Nombre = nombre;
+            Descripcion = descripcion;
             PoliticaDevolucion = politicaDevolucion;
         }
-    }
 
+
+    }
 }

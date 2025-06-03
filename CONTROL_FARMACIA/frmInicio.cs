@@ -35,25 +35,33 @@ namespace CONTROL_FARMACIA
 
         private void Panel()
         { 
-        panelSubMenu.Visible = false;
+            panelInventario.Visible = false;
+            panelSubMenu.Visible = false;
         }
 
-        private void MostrarPanel()
+        private void MostrarPanel(Panel SubMenu)
         {
-            if (panelSubMenu.Visible == false)
-            {
-                panelSubMenu.Visible = true;
+            if (SubMenu.Visible == false) 
+            { 
+                OcultarPanel();
+                SubMenu.Visible = true;
             }
             else
-            {
-                panelSubMenu.Visible = false;
-            }
+                SubMenu.Visible = false;
 
+        }
+
+        private void OcultarPanel()
+        {
+            if (panelInventario.Visible == true)
+                panelInventario.Visible = false;
+            if (panelSubMenu.Visible == true)
+                panelSubMenu.Visible = false;
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            MostrarPanel();
+            MostrarPanel(panelSubMenu);
         }
 
         
@@ -80,8 +88,7 @@ namespace CONTROL_FARMACIA
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new frmInventario());
-            Panel();
+           MostrarPanel(panelInventario);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
@@ -102,10 +109,35 @@ namespace CONTROL_FARMACIA
 
         }
 
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmCategorias());
+            Panel();
+        }
 
+        private void btnPresentacion_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmPresentacion());
+            Panel();
+        }
 
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmProveedores());
+            Panel();
+        }
 
-        
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmProducto());
+            Panel();
+        }
+
+        private void btnCaducidad_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new frmCaducidad());
+            Panel();
+        }
     }      
 
 }

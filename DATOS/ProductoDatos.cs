@@ -36,6 +36,9 @@ namespace Datalayer
                         IdConcentracion = reader.GetInt32(7),
                         IdProveedor = reader.GetInt32(8),
                         IdLote = reader.GetInt32(9),
+                        
+
+
                     };
 
                     producto.Add(productos);
@@ -53,6 +56,7 @@ namespace Datalayer
             {
                 SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE IdProducto = @IdProducto", con);
                 cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
