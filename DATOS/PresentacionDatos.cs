@@ -36,6 +36,19 @@ namespace DATOS
 
             return presentaciones;
         }
+
+        public void EliminarPresentacion(int IdPresentacion)
+        {
+            using (SqlConnection con = conexion.ObtenerConexion())
+            {
+                SqlCommand cmd = new SqlCommand("DELETE FROM Productos WHERE IdPresentacion = @IdPresentacion", con);
+                cmd.Parameters.AddWithValue("@IdPresentacion", IdPresentacion);
+
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public Presentacion ObtenerPresentacionPorId(int id)
         {
             Presentacion presentacion = null;

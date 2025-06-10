@@ -1,0 +1,231 @@
+USE [FarmaciaGenesis]
+GO
+
+-- Insertar Categorías
+INSERT INTO [dbo].[CategoriaFarmaco] ([Nombre], [Descripcion]) VALUES
+('Analgésicos', 'Medicamentos para el alivio del dolor'),
+('Antibióticos', 'Medicamentos para tratar infecciones bacterianas'),
+('Antihistamínicos', 'Medicamentos para alergias'),
+('Antiinflamatorios', 'Medicamentos para reducir la inflamación'),
+('Antipiréticos', 'Medicamentos para reducir la fiebre'),
+('Antisépticos', 'Productos para desinfectar'),
+('Vitaminas', 'Suplementos vitamínicos'),
+('Cuidado Personal', 'Productos de higiene personal'),
+('Primeros Auxilios', 'Productos para emergencias'),
+('Maternidad', 'Productos para cuidado prenatal y postnatal');
+
+-- Insertar Marcas
+INSERT INTO [dbo].[Marca] ([Nombre], [Descripcion], [PoliticaDevolucion]) VALUES
+('Bayer', 'Farmacéutica líder en investigación', '30 días con receta'),
+('Pfizer', 'Empresa farmacéutica global', '15 días con receta'),
+('GSK', 'GlaxoSmithKline', '20 días con receta'),
+('Johnson & Johnson', 'Multinacional de productos de salud', '30 días sin abrir'),
+('Roche', 'Empresa farmacéutica suiza', '15 días con receta'),
+('Merck', 'Empresa farmacéutica alemana', '20 días con receta'),
+('Sanofi', 'Empresa farmacéutica francesa', '30 días con receta'),
+('Novartis', 'Empresa farmacéutica suiza', '15 días con receta'),
+('Abbott', 'Empresa de dispositivos médicos', '30 días sin abrir'),
+('AstraZeneca', 'Empresa farmacéutica británica', '20 días con receta');
+
+-- Insertar Proveedores
+INSERT INTO [dbo].[Proveedor] ([Nombre], [Cedula], [Correo], [IdMarca]) VALUES
+('Distribuidora Farmacéutica SA', '1234567890', 'contacto@distribuidora.com', 1),
+('Medicamentos Express', '2345678901', 'ventas@medexpress.com', 2),
+('Farmacéutica Central', '3456789012', 'info@farmacentral.com', 3),
+('Distribuidora Nacional', '4567890123', 'contacto@distrinacional.com', 4),
+('Medicamentos Plus', '5678901234', 'ventas@medplus.com', 5),
+('Farmacéutica del Norte', '6789012345', 'info@farmanorte.com', 6),
+('Distribuidora Sur', '7890123456', 'contacto@distrisur.com', 7),
+('Medicamentos Express II', '8901234567', 'ventas@medexpress2.com', 8),
+('Farmacéutica Este', '9012345678', 'info@farmeste.com', 9),
+('Distribuidora Oeste', '0123456789', 'contacto@distrioeste.com', 10);
+
+-- Insertar Lotes
+INSERT INTO [dbo].[Lote] ([NumeroLote], [FechaEntrega]) VALUES
+('LOT2023001', '2023-01-15'),
+('LOT2023002', '2023-02-15'),
+('LOT2023003', '2023-03-15'),
+('LOT2023004', '2023-04-15'),
+('LOT2023005', '2023-05-15'),
+('LOT2023006', '2023-06-15'),
+('LOT2023007', '2023-07-15'),
+('LOT2023008', '2023-08-15'),
+('LOT2023009', '2023-09-15'),
+('LOT2023010', '2023-10-15');
+
+-- Insertar Presentaciones
+INSERT INTO [dbo].[Presentacion] ([Descripcion], [UnidadMedida], [CantidadUnidadMedida]) VALUES
+('Tabletas', 'Unidad', 10),
+('Tabletas', 'Unidad', 20),
+('Tabletas', 'Unidad', 30),
+('Jarabe', 'Mililitro', 100),
+('Jarabe', 'Mililitro', 200),
+('Inyección', 'Mililitro', 5),
+('Inyección', 'Mililitro', 10),
+('Cápsulas', 'Unidad', 15),
+('Cápsulas', 'Unidad', 30),
+('Crema', 'Gramo', 30);
+
+-- Insertar Concentraciones
+INSERT INTO [dbo].[Concentracion] ([Volumen], [Porcentaje]) VALUES
+(500, 5.00),
+(1000, 10.00),
+(250, 2.50),
+(750, 7.50),
+(100, 1.00),
+(200, 2.00),
+(300, 3.00),
+(400, 4.00),
+(600, 6.00),
+(800, 8.00);
+
+-- Insertar Productos
+INSERT INTO [dbo].[Producto] ([NombreComercial], [NombreGenerico], [IdCategoria], [PrecioVenta], [PrecioCompra], [IdPresentacion], [IdConcentracion], [IdProveedor], [IdLote]) VALUES
+('Aspirina', 'Ácido Acetilsalicílico', 1, 5.99, 3.99, 1, 1, 1, 1),
+('Paracetamol', 'Paracetamol', 1, 4.99, 2.99, 2, 2, 2, 2),
+('Amoxicilina', 'Amoxicilina', 2, 12.99, 8.99, 3, 3, 3, 3),
+('Ibuprofeno', 'Ibuprofeno', 4, 6.99, 4.99, 4, 4, 4, 4),
+('Loratadina', 'Loratadina', 3, 8.99, 5.99, 5, 5, 5, 5),
+('Vitamina C', 'Ácido Ascórbico', 7, 9.99, 6.99, 6, 6, 6, 6),
+('Jabón Antibacterial', 'Triclosán', 8, 3.99, 1.99, 7, 7, 7, 7),
+('Curitas', 'Tiritas', 9, 2.99, 1.49, 8, 8, 8, 8),
+('Ácido Fólico', 'Ácido Fólico', 10, 7.99, 4.99, 9, 9, 9, 9),
+('Omeprazol', 'Omeprazol', 4, 10.99, 7.99, 10, 10, 10, 10);
+
+-- Insertar Compras
+INSERT INTO [dbo].[Compra] ([IdProveedor], [FechaCompra], [Total], [Observaciones]) VALUES
+(1, '2023-01-01', 1000.00, 'Compra mensual'),
+(2, '2023-01-15', 1500.00, 'Compra quincenal'),
+(3, '2023-02-01', 2000.00, 'Compra mensual'),
+(4, '2023-02-15', 1750.00, 'Compra quincenal'),
+(5, '2023-03-01', 2250.00, 'Compra mensual'),
+(6, '2023-03-15', 1900.00, 'Compra quincenal'),
+(7, '2023-04-01', 2100.00, 'Compra mensual'),
+(8, '2023-04-15', 1650.00, 'Compra quincenal'),
+(9, '2023-05-01', 2350.00, 'Compra mensual'),
+(10, '2023-05-15', 1800.00, 'Compra quincenal');
+
+-- Insertar Detalles de Compra
+INSERT INTO [dbo].[DetalleCompra] ([IdCompra], [IdProducto], [IdLote], [Cantidad], [PrecioUnitario]) VALUES
+(1, 1, 1, 100, 3.99),
+(1, 2, 1, 150, 2.99),
+(2, 3, 2, 200, 8.99),
+(2, 4, 2, 180, 4.99),
+(3, 5, 3, 250, 5.99),
+(3, 6, 3, 220, 6.99),
+(4, 7, 4, 300, 1.99),
+(4, 8, 4, 280, 1.49),
+(5, 9, 5, 350, 4.99),
+(5, 10, 5, 320, 7.99);
+
+-- Insertar Caducidad de Productos
+INSERT INTO [dbo].[CaducidadProducto] ([IdProducto], [IdLote], [FechaCaducidad], [Cantidad], [Estado], [Observaciones]) VALUES
+(1, 1, '2024-01-15', 100, 'Activo', 'Stock normal'),
+(2, 2, '2024-02-15', 150, 'Activo', 'Stock normal'),
+(3, 3, '2024-03-15', 200, 'Activo', 'Stock normal'),
+(4, 4, '2024-04-15', 180, 'Activo', 'Stock normal'),
+(5, 5, '2024-05-15', 250, 'Activo', 'Stock normal'),
+(6, 6, '2024-06-15', 220, 'Activo', 'Stock normal'),
+(7, 7, '2024-07-15', 300, 'Activo', 'Stock normal'),
+(8, 8, '2024-08-15', 280, 'Activo', 'Stock normal'),
+(9, 9, '2024-09-15', 350, 'Activo', 'Stock normal'),
+(10, 10, '2024-10-15', 320, 'Activo', 'Stock normal');
+
+-- Insertar Movimientos de Inventario
+INSERT INTO [dbo].[MovimientoInventario] ([IdProducto], [TipoMovimiento], [Cantidad], [PrecioUnitario], [PrecioCaja], [Descripcion], [Fecha]) VALUES
+(1, 'Entrada', 100, 3.99, 399.00, 'Entrada inicial', '2023-01-01'),
+(2, 'Entrada', 150, 2.99, 448.50, 'Entrada inicial', '2023-01-01'),
+(3, 'Entrada', 200, 8.99, 1798.00, 'Entrada inicial', '2023-01-01'),
+(4, 'Entrada', 180, 4.99, 898.20, 'Entrada inicial', '2023-01-01'),
+(5, 'Entrada', 250, 5.99, 1497.50, 'Entrada inicial', '2023-01-01'),
+(6, 'Entrada', 220, 6.99, 1537.80, 'Entrada inicial', '2023-01-01'),
+(7, 'Entrada', 300, 1.99, 597.00, 'Entrada inicial', '2023-01-01'),
+(8, 'Entrada', 280, 1.49, 417.20, 'Entrada inicial', '2023-01-01'),
+(9, 'Entrada', 350, 4.99, 1746.50, 'Entrada inicial', '2023-01-01'),
+(10, 'Entrada', 320, 7.99, 2556.80, 'Entrada inicial', '2023-01-01');
+
+-- Insertar Facturas
+INSERT INTO [dbo].[Factura] ([IdUsuario], [Cliente], [Fecha], [Subtotal], [Descuento], [Total]) VALUES
+(1, 'Juan Pérez', '2023-01-01', 100.00, 10.00, 90.00),
+(1, 'María García', '2023-01-02', 150.00, 15.00, 135.00),
+(2, 'Carlos López', '2023-01-03', 200.00, 20.00, 180.00),
+(2, 'Ana Martínez', '2023-01-04', 250.00, 25.00, 225.00),
+(1, 'Pedro Sánchez', '2023-01-05', 300.00, 30.00, 270.00),
+(1, 'Laura Torres', '2023-01-06', 350.00, 35.00, 315.00),
+(2, 'Roberto Díaz', '2023-01-07', 400.00, 40.00, 360.00),
+(2, 'Carmen Ruiz', '2023-01-08', 450.00, 45.00, 405.00),
+(1, 'Miguel Ángel', '2023-01-09', 500.00, 50.00, 450.00),
+(1, 'Isabel Moreno', '2023-01-10', 550.00, 55.00, 495.00);
+
+-- Insertar Detalles de Factura
+INSERT INTO [dbo].[DetalleFactura] ([IdProducto], [Cantidad], [TotalDetalle], [IdFactura]) VALUES
+(1, 10, 59.90, 1),
+(2, 15, 74.85, 1),
+(3, 5, 64.95, 2),
+(4, 20, 139.80, 2),
+(5, 25, 174.75, 3),
+(6, 30, 209.70, 3),
+(7, 35, 139.65, 4),
+(8, 40, 119.60, 4),
+(9, 45, 359.55, 5),
+(10, 50, 549.50, 5);
+
+-- Insertar Devoluciones
+INSERT INTO [dbo].[Devolucion] ([TipoDevolucion], [Descripcion], [IdFactura], [IdProducto], [Fecha]) VALUES
+('Defecto', 'Producto defectuoso', 1, 1, '2023-01-02'),
+('Cambio', 'Cliente prefirió otro producto', 2, 2, '2023-01-03'),
+('Defecto', 'Producto vencido', 3, 3, '2023-01-04'),
+('Cambio', 'Talla incorrecta', 4, 4, '2023-01-05'),
+('Defecto', 'Producto dañado', 5, 5, '2023-01-06'),
+('Cambio', 'Cliente no satisfecho', 6, 6, '2023-01-07'),
+('Defecto', 'Producto incompleto', 7, 7, '2023-01-08'),
+('Cambio', 'Color incorrecto', 8, 8, '2023-01-09'),
+('Defecto', 'Producto mal etiquetado', 9, 9, '2023-01-10'),
+('Cambio', 'Cliente cambió de opinión', 10, 10, '2023-01-11');
+
+-- Insertar Stock Crítico
+INSERT INTO [dbo].[StockCritico] ([IdProducto], [CantidadMinima]) VALUES
+(1, 20),
+(2, 30),
+(3, 25),
+(4, 35),
+(5, 40),
+(6, 45),
+(7, 50),
+(8, 55),
+(9, 60),
+(10, 65);
+
+-- Insertar Métodos de Pago
+INSERT INTO [dbo].[MetodoPago] ([Nombre]) VALUES
+('Efectivo'),
+('Tarjeta de Crédito'),
+('Tarjeta de Débito'),
+('Transferencia Bancaria'),
+('Cheque');
+
+-- Insertar Detalles de Venta
+INSERT INTO [dbo].[DetalleVenta] ([IdFactura], [IdProducto], [Cantidad], [PrecioUnitario], [Total], [IdMetodoPago]) VALUES
+(1, 1, 10, 5.99, 59.90, 1),
+(1, 2, 15, 4.99, 74.85, 2),
+(2, 3, 5, 12.99, 64.95, 3),
+(2, 4, 20, 6.99, 139.80, 4),
+(3, 5, 25, 8.99, 224.75, 5),
+(3, 6, 30, 9.99, 299.70, 1),
+(4, 7, 35, 3.99, 139.65, 2),
+(4, 8, 40, 2.99, 119.60, 3),
+(5, 9, 45, 7.99, 359.55, 4),
+(5, 10, 50, 10.99, 549.50, 5);
+
+-- Insertar Resumen de Ventas
+INSERT INTO [dbo].[ResumenVentas] ([Fecha], [TotalVentas], [PorcentajeMetodoPago], [PromedioVentasDiario]) VALUES
+('2023-01-01', 1000.00, 20.00, 100.00),
+('2023-01-02', 1500.00, 25.00, 150.00),
+('2023-01-03', 2000.00, 30.00, 200.00),
+('2023-01-04', 2500.00, 35.00, 250.00),
+('2023-01-05', 3000.00, 40.00, 300.00),
+('2023-01-06', 3500.00, 45.00, 350.00),
+('2023-01-07', 4000.00, 50.00, 400.00),
+('2023-01-08', 4500.00, 55.00, 450.00),
+('2023-01-09', 5000.00, 60.00, 500.00),
+('2023-01-10', 5500.00, 65.00, 550.00); 

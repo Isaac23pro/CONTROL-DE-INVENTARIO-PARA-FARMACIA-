@@ -1,0 +1,124 @@
+USE [FarmaciaGenesis]
+GO
+
+-- Insertar datos masivos en las tablas
+-- CategoriaFarmaco
+INSERT INTO [dbo].[CategoriaFarmaco] ([Nombre], [Descripcion]) VALUES
+('Analgésicos', 'Medicamentos para el dolor'),
+('Antibióticos', 'Medicamentos para infecciones'),
+('Vitaminas', 'Suplementos vitamínicos');
+
+-- Marca
+INSERT INTO [dbo].[Marca] ([Nombre], [Descripcion], [PoliticaDevolucion]) VALUES
+('Marca A', 'Descripción de Marca A', 'Política de devolución de Marca A'),
+('Marca B', 'Descripción de Marca B', 'Política de devolución de Marca B');
+
+-- Proveedor
+INSERT INTO [dbo].[Proveedor] ([Nombre], [Cedula], [Correo], [IdMarca]) VALUES
+('Proveedor 1', '123456789', 'proveedor1@example.com', 1),
+('Proveedor 2', '987654321', 'proveedor2@example.com', 2);
+
+-- Lote
+INSERT INTO [dbo].[Lote] ([NumeroLote], [FechaEntrega]) VALUES
+('Lote 1', '2023-01-01'),
+('Lote 2', '2023-02-01');
+
+-- Presentacion
+INSERT INTO [dbo].[Presentacion] ([Descripcion], [UnidadMedida], [CantidadUnidadMedida]) VALUES
+('Tableta', 'Unidad', 10),
+('Jarabe', 'Mililitro', 100);
+
+-- Concentracion
+INSERT INTO [dbo].[Concentracion] ([Volumen], [Porcentaje]) VALUES
+(10, 5),
+(20, 10);
+
+-- Producto
+INSERT INTO [dbo].[Producto] ([NombreComercial], [NombreGenerico], [IdCategoria], [PrecioVenta], [PrecioCompra], [IdPresentacion], [IdConcentracion], [IdProveedor], [IdLote]) VALUES
+('Producto 1', 'Genérico 1', 1, 100, 80, 1, 1, 1, 1),
+('Producto 2', 'Genérico 2', 2, 200, 160, 2, 2, 2, 2);
+
+-- Compra
+INSERT INTO [dbo].[Compra] ([IdProveedor], [FechaCompra], [Total], [Observaciones]) VALUES
+(1, '2023-01-01', 1000, 'Compra de productos'),
+(2, '2023-02-01', 2000, 'Compra de productos');
+
+-- DetalleCompra
+INSERT INTO [dbo].[DetalleCompra] ([IdCompra], [IdProducto], [IdLote], [Cantidad], [PrecioUnitario]) VALUES
+(1, 1, 1, 10, 100),
+(2, 2, 2, 20, 200);
+
+-- CaducidadProducto
+INSERT INTO [dbo].[CaducidadProducto] ([IdProducto], [IdLote], [FechaCaducidad], [Cantidad], [Estado], [Observaciones]) VALUES
+(1, 1, '2023-12-31', 5, 'Activo', 'Observaciones'),
+(2, 2, '2023-12-31', 10, 'Activo', 'Observaciones');
+
+-- MovimientoInventario
+INSERT INTO [dbo].[MovimientoInventario] ([IdProducto], [TipoMovimiento], [Cantidad], [PrecioUnitario], [PrecioCaja], [Descripcion], [Fecha]) VALUES
+(1, 'Entrada', 10, 100, 1000, 'Entrada de productos', '2023-01-01'),
+(2, 'Salida', 5, 200, 1000, 'Salida de productos', '2023-02-01');
+
+-- Factura
+INSERT INTO [dbo].[Factura] ([IdUsuario], [Cliente], [Fecha], [Subtotal], [Descuento], [Total]) VALUES
+(1, 'Cliente 1', '2023-01-01', 1000, 100, 900),
+(2, 'Cliente 2', '2023-02-01', 2000, 200, 1800);
+
+-- DetalleFactura
+INSERT INTO [dbo].[DetalleFactura] ([IdProducto], [Cantidad], [TotalDetalle], [IdFactura]) VALUES
+(1, 10, 1000, 1),
+(2, 20, 2000, 2);
+
+-- Devolucion
+INSERT INTO [dbo].[Devolucion] ([TipoDevolucion], [Descripcion], [IdFactura], [IdProducto], [Fecha]) VALUES
+('Tipo 1', 'Descripción de devolución', 1, 1, '2023-01-01'),
+('Tipo 2', 'Descripción de devolución', 2, 2, '2023-02-01');
+
+-- StockCritico
+INSERT INTO [dbo].[StockCritico] ([IdProducto], [CantidadMinima]) VALUES
+(1, 5),
+(2, 10);
+
+-- MetodoPago
+INSERT INTO [dbo].[MetodoPago] ([Nombre]) VALUES
+('Efectivo'),
+('Tarjeta');
+
+-- DetalleVenta
+INSERT INTO [dbo].[DetalleVenta] ([IdFactura], [IdProducto], [Cantidad], [PrecioUnitario], [Total], [IdMetodoPago]) VALUES
+(1, 1, 10, 100, 1000, 1),
+(2, 2, 20, 200, 2000, 2);
+
+-- ResumenVentas
+INSERT INTO [dbo].[ResumenVentas] ([Fecha], [TotalVentas], [PorcentajeMetodoPago], [PromedioVentasDiario]) VALUES
+('2023-01-01', 1000, 50, 100),
+('2023-02-01', 2000, 50, 200);
+
+-- Consultas para filtrar ventas, ver stock crítico, productos a vencer, detalles de ventas, y resúmenes de ventas
+-- Filtrar ventas por mes
+SELECT * FROM [dbo].[Factura] WHERE MONTH([Fecha]) = 1;
+
+-- Filtrar ventas por día
+SELECT * FROM [dbo].[Factura] WHERE DAY([Fecha]) = 1;
+
+-- Ver stock crítico
+SELECT p.[NombreComercial], sc.[CantidadMinima]
+FROM [dbo].[Producto] p
+JOIN [dbo].[StockCritico] sc ON p.[IdProducto] = sc.[IdProducto];
+
+-- Ver productos a vencer
+SELECT p.[NombreComercial], cp.[FechaCaducidad], cp.[Cantidad]
+FROM [dbo].[Producto] p
+JOIN [dbo].[CaducidadProducto] cp ON p.[IdProducto] = cp.[IdProducto]
+WHERE cp.[FechaCaducidad] <= DATEADD(day, 30, GETDATE());
+
+-- Ver detalles de ventas
+SELECT f.[Cliente], p.[NombreComercial], df.[Cantidad], df.[TotalDetalle], mp.[Nombre] AS MetodoPago
+FROM [dbo].[Factura] f
+JOIN [dbo].[DetalleFactura] df ON f.[IdFactura] = df.[IdFactura]
+JOIN [dbo].[Producto] p ON df.[IdProducto] = p.[IdProducto]
+JOIN [dbo].[DetalleVenta] dv ON f.[IdFactura] = dv.[IdFactura]
+JOIN [dbo].[MetodoPago] mp ON dv.[IdMetodoPago] = mp.[IdMetodoPago];
+
+-- Ver resumen de ventas
+SELECT [Fecha], [TotalVentas], [PorcentajeMetodoPago], [PromedioVentasDiario]
+FROM [dbo].[ResumenVentas]; 

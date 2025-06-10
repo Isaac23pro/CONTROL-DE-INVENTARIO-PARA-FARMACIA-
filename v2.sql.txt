@@ -1,0 +1,144 @@
+CREATE TABLE [dbo].[CategoriaFarmaco](
+	[IdCategoria] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Nombre] NVARCHAR(100) NOT NULL,
+	[Descripcion] NVARCHAR(MAX)
+);
+CREATE TABLE [dbo].[Marca](
+	[IdMarca] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Nombre] NVARCHAR(100) NOT NULL,
+	[Descripcion] NVARCHAR(MAX),
+	[PoliticaDevolucion] NVARCHAR(MAX)
+);
+
+ 
+CREATE TABLE [dbo].[Proveedor](
+	[IdProveedor] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Nombre] NVARCHAR(150) NOT NULL,
+	[Cedula] NVARCHAR(20),
+	[Correo] NVARCHAR(100) UNIQUE,
+	[IdMarca] INT,
+	FOREIGN KEY ([IdMarca]) REFERENCES [dbo].[Marca]([IdMarca])
+);
+
+ 
+CREATE TABLE [dbo].[Lote](
+	[IdLote] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[NumeroLote] VARCHAR(100) NOT NULL UNIQUE,
+	[FechaEntrega] DATE
+);
+
+ 
+CREATE TABLE [dbo].[Presentacion](
+	[IdPresentacion] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Descripcion] NVARCHAR(255) NOT NULL,
+	[UnidadMedida] NVARCHAR(50),
+	[CantidadUnidadMedida] DECIMAL(10,2)
+);
+
+ 
+CREATE TABLE [dbo].[Concentracion](
+	[IdConcentracion] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Volumen] DECIMAL(10,2),
+	[Porcentaje] DECIMAL(5,2)
+);
+
+ 
+CREATE TABLE [dbo].[Producto](
+	[IdProducto] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[NombreComercial] NVARCHAR(255) NOT NULL,
+	[NombreGenerico] NVARCHAR(255),
+	[IdCategoria] INT,
+	[PrecioVenta] DECIMAL(12,2) NOT NULL,
+	[PrecioCompra] DECIMAL(12,2),
+	[IdPresentacion] INT,
+	[IdConcentracion] INT,
+	[IdProveedor] INT,
+	[IdLote] INT,
+	FOREIGN KEY ([IdCategoria]) REFERENCES [dbo].[CategoriaFarmaco]([IdCategoria]),
+	FOREIGN KEY ([IdPresentacion]) REFERENCES [dbo].[Presentacion]([IdPresentacion]),
+	FOREIGN KEY ([IdConcentracion]) REFERENCES [dbo].[Concentracion]([IdConcentracion]),
+	FOREIGN KEY ([IdProveedor]) REFERENCES [dbo].[Proveedor]([IdProveedor]),
+	FOREIGN KEY ([IdLote]) REFERENCES [dbo].[Lote]([IdLote])
+);
+
+ 
+CREATE TABLE [dbo].[Compra](
+	[IdCompra] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdProveedor] INT NOT NULL,
+	[FechaCompra] DATETIME NOT NULL,
+	[Total] DECIMAL(18,2) NOT NULL,
+	[Observaciones] TEXT,
+	FOREIGN KEY ([IdProveedor]) REFERENCES [dbo].[Proveedor]([IdProveedor])
+);
+ 
+CREATE TABLE [dbo].[DetalleCompra](
+	[IdDetalleCompra] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdCompra] INT NOT NULL,
+	[IdProducto] INT NOT NULL,
+	[IdLote] INT NOT NULL,
+	[Cantidad] INT NOT NULL,
+	[PrecioUnitario] DECIMAL(18,2) NOT NULL,
+	[PrecioTotal] AS ([Cantidad] * [PrecioUnitario]) PERSISTED,
+	FOREIGN KEY ([IdCompra]) REFERENCES [dbo].[Compra]([IdCompra]),
+	FOREIGN KEY ([IdProducto]) REFERENCES [dbo].[Producto]([IdProducto]),
+	FOREIGN KEY ([IdLote]) REFERENCES [dbo].[Lote]([IdLote])
+);
+
+ 
+CREATE TABLE [dbo].[CaducidadProducto](
+	[IdCaducidad] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdProducto] INT NOT NULL,
+	[IdLote] INT NOT NULL,
+	[FechaCaducidad] DATE NOT NULL,
+	[Cantidad] DECIMAL(10,2) NOT NULL,
+	[Estado] NVARCHAR(50),
+	[Observaciones] NVARCHAR(MAX),
+	FOREIGN KEY ([IdProducto]) REFERENCES [dbo].[Producto]([IdProducto]),
+	FOREIGN KEY ([IdLote]) REFERENCES [dbo].[Lote]([IdLote])
+);
+
+ 
+CREATE TABLE [dbo].[MovimientoInventario](
+	[IdMovimiento] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdProducto] INT NOT NULL,
+	[TipoMovimiento] VARCHAR(50) NOT NULL,
+	[Cantidad] DECIMAL(10,2) NOT NULL,
+	[PrecioUnitario] DECIMAL(12,2),
+	[PrecioCaja] DECIMAL(12,2),
+	[Descripcion] NVARCHAR(MAX),
+	[Fecha] DATETIME2(7),
+	FOREIGN KEY ([IdProducto]) REFERENCES [dbo].[Producto]([IdProducto])
+);
+
+ 
+CREATE TABLE [dbo].[Factura](
+	[IdFactura] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdUsuario] INT,
+	[Cliente] NVARCHAR(255),
+	[Fecha] DATETIME2(7) NOT NULL,
+	[Subtotal] DECIMAL(15,2) NOT NULL,
+	[Descuento] DECIMAL(15,2),
+	[Total] DECIMAL(15,2) NOT NULL
+);
+ 
+CREATE TABLE [dbo].[DetalleFactura](
+	[IdDetalleFactura] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[IdProducto] INT NOT NULL,
+	[Cantidad] DECIMAL(10,2) NOT NULL,
+	[TotalDetalle] DECIMAL(15,2) NOT NULL,
+	[IdFactura] INT NOT NULL,
+	FOREIGN KEY ([IdProducto]) REFERENCES [dbo].[Producto]([IdProducto]),
+	FOREIGN KEY ([IdFactura]) REFERENCES [dbo].[Factura]([IdFactura])
+);
+
+ 
+CREATE TABLE [dbo].[Devolucion](
+	[IdDevolucion] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[TipoDevolucion] VARCHAR(100) NOT NULL,
+	[Descripcion] NVARCHAR(MAX) NOT NULL,
+	[IdFactura] INT,
+	[IdProducto] INT NOT NULL,
+	[Fecha] DATETIME2(7),
+	FOREIGN KEY ([IdFactura]) REFERENCES [dbo].[Factura]([IdFactura]),
+	FOREIGN KEY ([IdProducto]) REFERENCES [dbo].[Producto]([IdProducto])
+);

@@ -12,10 +12,11 @@ namespace NEGOCIO
     {
         private ProductoDatos productoDatos = new ProductoDatos();
 
-
-        public List<Producto> ObtenerProductos()
+        //suspuestamenete se le quita la s a obtener productos
+        public List<Producto> ObtenerProducto()
         {
-            return productoDatos.ObtenerProductos();
+            //igual aqui xd
+            return productoDatos.ObtenerProducto();
         }
 
         public Producto ObtenerProductoPorId(int idProducto)

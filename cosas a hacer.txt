@@ -1,0 +1,6 @@
+comparame los 2 scrip de la base de datos dime cual de las 2 me permite filtrr las ventas por 
+meses, por dias, y me permita ver las ventas mensuales y ver las ventas por dias y ver elstcok critico y 
+el numero de productos a vence, y me permita ver los dias restantes de los productos a vencer y me permita friltarlos por dias y por mes
+tambien  que me permita ver los detalles de ventas y ver el metodo de pagon que se uso y la cantidada de producto que llevo el client y que productos llevo
+y el coste total y unitario de los productos que llevo y me permita hacer un resumen de ventas como el total de ventas, procentaje de metodos de pagos usado y el promedio de vantas diario
+y me permita hacer ventas y buscar el producto y agregarlo al carrito y ver el subtotal,total y el metodo de pago y que me genere la factura , y que la factura se me guarde en la base de datos  

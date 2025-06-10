@@ -13,7 +13,7 @@ namespace Datalayer
     {
         private Conexion conexion = new Conexion();
 
-        public List<Producto> ObtenerProductos()
+        public List<Producto> ObtenerProducto()
         {
             List<Producto> producto = new List<Producto>();
 

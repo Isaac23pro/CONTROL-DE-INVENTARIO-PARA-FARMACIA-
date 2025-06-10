@@ -9,7 +9,7 @@ namespace DATOS
 {
     public class Conexion
     {
-        private string connectionString = "Server=XD\\SQLEXPRESS;Database=FarmaciaGenesis; Trusted_Connection=True;Encrypt=False;";
+        private string connectionString = "Server=XD\\SQLEXPRESS;Database=FarmaciaGenesisAPP; Trusted_Connection=True;Encrypt=False;";
 
         //OE SOLO DESCOMENTA TU CADENA DE CONEXION Y COMENTA LA MI CADENA DE CONEXION
         //private string connectionString = "Server=XD\\SQLEXPRESS;Database=FarmaciaGenesisDIFINITIVO; Trusted_Connection=True;Encrypt=False;"; // Coloca tu cadena de conexión

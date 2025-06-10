@@ -69,8 +69,47 @@
 
 ---
 
+## 📞 Soporte
+Para dudas o problemas, contacta a tu profesor o revisa la documentación interna del código.
 
+## ✅ Pruebas manuales sugeridas
 
+Sigue estos pasos para comprobar que el sistema funciona correctamente:
 
+1. **Iniciar sesión**
+   - Ingresa con un usuario válido. Si no tienes uno, agrégalo en la base de datos.
+
+2. **Agregar producto**
+   - Ve a la sección de productos.
+   - Llena todos los campos obligatorios y haz clic en "Agregar".
+   - Verifica que el producto aparezca en la lista.
+
+3. **Editar producto**
+   - Selecciona un producto de la lista.
+   - Modifica algún dato y haz clic en "Actualizar".
+   - Verifica que los cambios se reflejen.
+
+4. **Eliminar producto**
+   - Selecciona un producto y haz clic en "Eliminar".
+   - Confirma que desaparece de la lista.
+
+5. **Buscar producto**
+   - Usa la barra de búsqueda por nombre o filtra por categoría.
+   - Verifica que los resultados sean correctos.
+
+6. **Exportar a Excel**
+   - Haz clic en "Exportar a Excel" en la pantalla de productos.
+   - Abre el archivo generado y revisa que los datos sean correctos.
+
+7. **Gestión de proveedores**
+   - Agrega, edita y elimina proveedores desde su sección.
+
+8. **Ver productos próximos a caducar**
+   - Entra a la sección de caducidad y revisa la lista.
+
+9. **Cerrar sesión y salir**
+   - Usa el botón de salir para cerrar el sistema de forma segura.
+
+---
 
 

@@ -1,0 +1,327 @@
+USE [FarmaciaGenesis]
+GO
+/****** Object:  Table [dbo].[CaducidadProducto]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CaducidadProducto](
+	[IdCaducidad] [int] IDENTITY(1,1) NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[IdLote] [int] NOT NULL,
+	[FechaCaducidad] [date] NOT NULL,
+	[Cantidad] [decimal](10, 2) NOT NULL,
+	[Estado] [nvarchar](50) NULL,
+	[Observaciones] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdCaducidad] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CategoriaFarmaco]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CategoriaFarmaco](
+	[IdCategoria] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](100) NOT NULL,
+	[Descripcion] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdCategoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Concentracion]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Concentracion](
+	[IdConcentracion] [int] IDENTITY(1,1) NOT NULL,
+	[Volumen] [decimal](10, 2) NULL,
+	[Porcentaje] [decimal](5, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdConcentracion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetalleFactura]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetalleFactura](
+	[IdDetalleFactura] [int] IDENTITY(1,1) NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[Cantidad] [decimal](10, 2) NOT NULL,
+	[TotalDetalle] [decimal](15, 2) NOT NULL,
+	[IdFactura] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdDetalleFactura] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Devolucion]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Devolucion](
+	[IdDevolucion] [int] IDENTITY(1,1) NOT NULL,
+	[TipoDevolucion] [varchar](100) NOT NULL,
+	[Descripcion] [nvarchar](max) NOT NULL,
+	[IdFactura] [int] NULL,
+	[IdProducto] [int] NOT NULL,
+	[Fecha] [datetime2](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdDevolucion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Factura]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Factura](
+	[IdFactura] [int] IDENTITY(1,1) NOT NULL,
+	[IdUsuario] [int] NULL,
+	[Cliente] [nvarchar](255) NULL,
+	[Fecha] [datetime2](7) NOT NULL,
+	[Subtotal] [decimal](15, 2) NOT NULL,
+	[Descuento] [decimal](15, 2) NULL,
+	[Total] [decimal](15, 2) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdFactura] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Lote]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Lote](
+	[IdLote] [int] IDENTITY(1,1) NOT NULL,
+	[NumeroLote] [varchar](100) NOT NULL,
+	[FechaEntrega] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdLote] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[NumeroLote] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Marca]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Marca](
+	[IdMarca] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](100) NOT NULL,
+	[Descripcion] [nvarchar](max) NULL,
+	[PoliticaDevolucion] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdMarca] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MovimientoInventario]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MovimientoInventario](
+	[IdMovimiento] [int] IDENTITY(1,1) NOT NULL,
+	[IdProducto] [int] NOT NULL,
+	[TipoMovimiento] [varchar](50) NOT NULL,
+	[Cantidad] [decimal](10, 2) NOT NULL,
+	[PrecioUnitario] [decimal](12, 2) NULL,
+	[PrecioCaja] [decimal](12, 2) NULL,
+	[Descripcion] [nvarchar](max) NULL,
+	[Fecha] [datetime2](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdMovimiento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Presentacion]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Presentacion](
+	[IdPresentacion] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [nvarchar](255) NOT NULL,
+	[UnidadMedida] [nvarchar](50) NULL,
+	[CantidadUnidadMedida] [decimal](10, 2) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdPresentacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Producto]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto](
+	[IdProducto] [int] IDENTITY(1,1) NOT NULL,
+	[NombreComercial] [nvarchar](255) NOT NULL,
+	[NombreGenerico] [nvarchar](255) NULL,
+	[IdCategoria] [int] NULL,
+	[PrecioVenta] [decimal](12, 2) NOT NULL,
+	[PrecioCompra] [decimal](12, 2) NULL,
+	[IdPresentacion] [int] NULL,
+	[IdConcentracion] [int] NULL,
+	[IdProveedor] [int] NULL,
+	[IdLote] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Proveedor]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Proveedor](
+	[IdProveedor] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](150) NOT NULL,
+	[Cedula] [nvarchar](20) NULL,
+	[Correo] [nvarchar](100) NULL,
+	[IdMarca] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdProveedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Correo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Cedula] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 08/06/2025 17:14:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuarios](
+	[IdUsuario] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](100) NOT NULL,
+	[Apellido] [nvarchar](100) NULL,
+	[Clave] [nvarchar](50) NOT NULL,
+	[Correo] [nvarchar](100) NULL,
+	[Cedula] [nvarchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdUsuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Correo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Cedula] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Devolucion] ADD  CONSTRAINT [DF_Devolucion_Fecha]  DEFAULT (getdate()) FOR [Fecha]
+GO
+ALTER TABLE [dbo].[Factura] ADD  CONSTRAINT [DF_Factura_Subtotal]  DEFAULT ((0.00)) FOR [Subtotal]
+GO
+ALTER TABLE [dbo].[Factura] ADD  CONSTRAINT [DF_Factura_Descuento]  DEFAULT ((0.00)) FOR [Descuento]
+GO
+ALTER TABLE [dbo].[Factura] ADD  CONSTRAINT [DF_Factura_Total]  DEFAULT ((0.00)) FOR [Total]
+GO
+ALTER TABLE [dbo].[MovimientoInventario] ADD  CONSTRAINT [DF_Movimiento_Fecha]  DEFAULT (getdate()) FOR [Fecha]
+GO
+ALTER TABLE [dbo].[Producto] ADD  CONSTRAINT [DF_Producto_PrecioVenta]  DEFAULT ((0.00)) FOR [PrecioVenta]
+GO
+ALTER TABLE [dbo].[Producto] ADD  CONSTRAINT [DF_Producto_PrecioCompra]  DEFAULT ((0.00)) FOR [PrecioCompra]
+GO
+ALTER TABLE [dbo].[CaducidadProducto]  WITH CHECK ADD FOREIGN KEY([IdLote])
+REFERENCES [dbo].[Lote] ([IdLote])
+GO
+ALTER TABLE [dbo].[CaducidadProducto]  WITH CHECK ADD FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Producto] ([IdProducto])
+GO
+ALTER TABLE [dbo].[DetalleFactura]  WITH CHECK ADD FOREIGN KEY([IdFactura])
+REFERENCES [dbo].[Factura] ([IdFactura])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[DetalleFactura]  WITH CHECK ADD FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Producto] ([IdProducto])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[Devolucion]  WITH CHECK ADD FOREIGN KEY([IdFactura])
+REFERENCES [dbo].[Factura] ([IdFactura])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Devolucion]  WITH CHECK ADD FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Producto] ([IdProducto])
+ON UPDATE CASCADE
+GO
+ALTER TABLE [dbo].[Factura]  WITH CHECK ADD FOREIGN KEY([IdUsuario])
+REFERENCES [dbo].[Usuarios] ([IdUsuario])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[MovimientoInventario]  WITH CHECK ADD FOREIGN KEY([IdProducto])
+REFERENCES [dbo].[Producto] ([IdProducto])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD FOREIGN KEY([IdCategoria])
+REFERENCES [dbo].[CategoriaFarmaco] ([IdCategoria])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD FOREIGN KEY([IdConcentracion])
+REFERENCES [dbo].[Concentracion] ([IdConcentracion])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD FOREIGN KEY([IdLote])
+REFERENCES [dbo].[Lote] ([IdLote])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD FOREIGN KEY([IdPresentacion])
+REFERENCES [dbo].[Presentacion] ([IdPresentacion])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD FOREIGN KEY([IdProveedor])
+REFERENCES [dbo].[Proveedor] ([IdProveedor])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO
+ALTER TABLE [dbo].[Proveedor]  WITH CHECK ADD FOREIGN KEY([IdMarca])
+REFERENCES [dbo].[Marca] ([IdMarca])
+ON UPDATE CASCADE
+ON DELETE SET NULL
+GO

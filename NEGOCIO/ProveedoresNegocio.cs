@@ -15,7 +15,28 @@ namespace NEGOCIO
         {
             return proveedoresDatos.ObtenerProveedores();
         }
-       
+
+        public void AgregarProveedor(Proveedores proveedor)
+        {
+            proveedoresDatos.AgregarProveedor(proveedor);
+        }
+
+        public void EliminarProveedor(int idProveedor)
+        {
+            proveedoresDatos.EliminarProveedor(idProveedor);
+        }
+
+        public void ActualizarProveedor(Proveedores proveedor)
+        {
+            proveedoresDatos.ActualizarProveedor(proveedor);
+        }
+        public Proveedores ObtenerProveedorPorId(int idProveedor)
+        {
+            return proveedoresDatos.ObtenerProveedores().FirstOrDefault(p => p.IdProveedor == idProveedor);
+        }
+
+
+        
         
     }
 }
